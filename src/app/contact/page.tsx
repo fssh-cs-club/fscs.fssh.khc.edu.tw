@@ -81,7 +81,7 @@ export default function Contact() {
             聯絡資訊
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-xl text-sky-600 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -114,7 +114,9 @@ export default function Contact() {
               >
                 {info.icon}
               </motion.div>
-              <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
+              <h3 className="text-lg text-black font-semibold mb-2">
+                {info.title}
+              </h3>
               <p className="text-gray-600">{info.value}</p>
             </motion.div>
           ))}
@@ -125,7 +127,7 @@ export default function Contact() {
       <ScrollSection>
         <section className="bg-white p-6 rounded-lg shadow-lg">
           <motion.h2
-            className="text-2xl font-semibold mb-4"
+            className="text-2xl text-black font-semibold mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
