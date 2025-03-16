@@ -209,7 +209,7 @@ export default function Home() {
             onClick={() => setSelectedNews(null)}
           >
             <motion.div
-              className="bg-white/80 backdrop-blur-sm rounded-lg max-w-2xl w-full shadow-xl border border-white/20"
+              className="bg-white/80 backdrop-blur-sm rounded-lg max-h-[80vh] overflow-auto max-w-2xl w-full shadow-xl border border-white/20"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}

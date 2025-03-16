@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -17,18 +17,26 @@ export default function ThemeToggle() {
     return null;
   }
 
+  // Use resolvedTheme to determine which icon to show
+  // resolvedTheme takes into account system preferences
+  const isDark = resolvedTheme === "dark";
+
   return (
     <motion.button
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="theme-toggle"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className={`theme-toggle p-2 rounded-full transition-colors ${
+        isDark
+          ? "bg-gray-800 hover:bg-gray-700"
+          : "bg-gray-100 hover:bg-gray-200"
+      }`}
       aria-label="切換主題"
     >
-      {theme === "dark" ? (
-        // Sun icon
+      {isDark ? (
+        // Sun icon for dark mode
         <svg
-          className="w-5 h-5 text-yellow-500"
+          className="w-5 h-5 text-yellow-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -42,9 +50,9 @@ export default function ThemeToggle() {
           />
         </svg>
       ) : (
-        // Moon icon
+        // Moon icon for light mode
         <svg
-          className="w-5 h-5 text-gray-900 dark:text-gray-200"
+          className="w-5 h-5 text-gray-700"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

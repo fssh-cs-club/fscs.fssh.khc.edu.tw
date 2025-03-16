@@ -203,7 +203,7 @@ export default function Events() {
             活動紀錄
           </motion.h1>
           <motion.p
-            className="text-xl text-sky-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className="text-xl text-sky-600 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -251,7 +251,7 @@ export default function Events() {
                   <motion.div
                     className={`absolute md:left-1/2 left-4 transform md:-translate-x-1/2 w-4 h-4 ${
                       categoryColors[event.category]
-                    } rounded-full ring-4 ring-white dark:ring-gray-900 shadow-lg z-10`}
+                    } rounded-full ring-4 ring-white  shadow-lg z-10`}
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     whileHover={{ scale: 1.5 }}
@@ -279,7 +279,7 @@ export default function Events() {
                     viewport={{ once: false, amount: 0.5 }}
                     whileHover={{ y: -5 }}
                   >
-                    <div className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
+                    <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg border border-gray-100">
                       <div className="mb-4">
                         <span
                           className={`px-3 py-1 rounded-full text-white text-sm ${
@@ -291,11 +291,11 @@ export default function Events() {
                         <h3 className="text-lg md:text-xl font-semibold mt-3 mb-2 text-black">
                           {event.title}
                         </h3>
-                        <p className="text-blue-600 dark:text-blue-400 text-sm md:text-base">
+                        <p className="text-blue-600  text-sm md:text-base">
                           {event.date}
                         </p>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base mb-4">
+                      <p className="text-gray-600  text-sm md:text-base mb-4">
                         {event.description}
                       </p>
 
@@ -354,9 +354,9 @@ export default function Events() {
       </ScrollSection>
 
       <ScrollSection>
-        <section className="bg-white dark:bg-gray-800 p-4 md:p-8 rounded-lg shadow-lg mx-4 md:mx-0">
+        <section className="bg-white  p-4 md:p-8 rounded-lg shadow-lg mx-4 md:mx-0">
           <motion.h2
-            className="text-xl md:text-2xl font-semibold mb-6 text-center text-black dark:text-white"
+            className="text-xl md:text-2xl font-semibold mb-6 text-center text-black"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
@@ -372,7 +372,7 @@ export default function Events() {
             {albums.map((album) => (
               <motion.div
                 key={album.id}
-                className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+                className="bg-gray-50  rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -5 }}
@@ -405,20 +405,16 @@ export default function Events() {
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
                     </>
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-                      <p className="text-gray-500 dark:text-gray-400 text-center px-4">
-                        無圖片
-                      </p>
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 ">
+                      <p className="text-gray-500  text-center px-4">無圖片</p>
                     </div>
                   )}
                 </div>
 
                 {/* 相册信息 */}
                 <div className="p-3 flex justify-between items-center">
-                  <p className="text-gray-500 dark:text-gray-300 text-sm">
-                    {album.date}
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-300 text-sm flex items-center">
+                  <p className="text-gray-500  text-sm">{album.date}</p>
+                  <p className="text-gray-500  text-sm flex items-center">
                     <svg
                       className="w-4 h-4 mr-1"
                       fill="none"
@@ -452,7 +448,7 @@ export default function Events() {
             onClick={() => setSelectedEvent(null)}
           >
             <motion.div
-              className="modal-content max-h-[90vh] overflow-y-auto w-[95%] md:w-full"
+              className="modal-content max-h-[80vh] overflow-y-auto w-[95%] md:w-full"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -468,12 +464,12 @@ export default function Events() {
                     >
                       {selectedEvent.category}
                     </span>
-                    <h2 className="text-xl md:text-2xl font-bold mt-2 md:mt-3 dark:text-white">
+                    <h2 className="text-xl md:text-2xl font-bold mt-2 md:mt-3 ">
                       {selectedEvent.title}
                     </h2>
                   </div>
                   <button
-                    className="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 cursor-pointer"
+                    className="text-gray-500  hover:text-gray-700  cursor-pointer"
                     onClick={() => setSelectedEvent(null)}
                   >
                     <svg
@@ -494,7 +490,7 @@ export default function Events() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="space-y-2">
-                    <p className="flex items-center text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                    <p className="flex items-center text-gray-600  text-sm md:text-base">
                       <svg
                         className="w-4 h-4 md:w-5 md:h-5 mr-2"
                         fill="none"
@@ -511,7 +507,7 @@ export default function Events() {
                       日期：{selectedEvent.date}
                     </p>
                     {selectedEvent.time && (
-                      <p className="flex items-center text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                      <p className="flex items-center text-gray-600 text-sm md:text-base">
                         <svg
                           className="w-4 h-4 md:w-5 md:h-5 mr-2"
                           fill="none"
@@ -531,7 +527,7 @@ export default function Events() {
                   </div>
                   <div className="space-y-2">
                     {selectedEvent.location && (
-                      <p className="flex items-center text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                      <p className="flex items-center text-gray-600  text-sm md:text-base">
                         <svg
                           className="w-4 h-4 md:w-5 md:h-5 mr-2"
                           fill="none"
@@ -555,7 +551,7 @@ export default function Events() {
                       </p>
                     )}
                     {selectedEvent.participants && (
-                      <p className="flex items-center text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                      <p className="flex items-center text-gray-600  text-sm md:text-base">
                         <svg
                           className="w-4 h-4 md:w-5 md:h-5 mr-2"
                           fill="none"
@@ -573,7 +569,7 @@ export default function Events() {
                       </p>
                     )}
                     {selectedEvent.organizer && (
-                      <p className="flex items-center text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                      <p className="flex items-center text-gray-600 text-sm md:text-base">
                         <svg
                           className="w-4 h-4 md:w-5 md:h-5 mr-2"
                           fill="none"
@@ -593,20 +589,20 @@ export default function Events() {
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                  <h3 className="font-semibold mb-2 dark:text-white text-base md:text-lg">
+                <div className="border-t border-gray-200 pt-4">
+                  <h3 className="font-semibold mb-2 text-base md:text-lg">
                     活動介紹
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line text-sm md:text-base">
+                  <p className="text-gray-600 whitespace-pre-line text-sm md:text-base">
                     {selectedEvent.content}
                   </p>
                 </div>
 
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                <div className="border-t border-gray-200  pt-4">
                   {selectedEvent.images.length > 0 ? (
                     <>
                       <div className="flex justify-between items-center mb-3 md:mb-4">
-                        <h3 className="font-semibold dark:text-white text-base md:text-lg">
+                        <h3 className="font-semibold  text-base md:text-lg">
                           活動照片
                         </h3>
                         <motion.button
@@ -668,9 +664,7 @@ export default function Events() {
                     </>
                   ) : (
                     <div className="text-center py-8">
-                      <p className="text-gray-500 dark:text-gray-400">
-                        此活動暫無照片
-                      </p>
+                      <p className="text-gray-500 ">此活動暫無照片</p>
                     </div>
                   )}
                 </div>
@@ -695,8 +689,8 @@ export default function Events() {
             <motion.div
               className={`relative bg-black/95 rounded-lg shadow-xl flex flex-col ${
                 isFullscreen
-                  ? "w-full h-full rounded-none"
-                  : "max-w-[95vw] w-full h-[90vh] max-h-[95vh]"
+                  ? "w-full h-[95vh] rounded-none"
+                  : "max-w-[95vw] w-full h-[80vh] max-h-[80vh]"
               }`}
               initial={{ scale: 0.85, opacity: 0, y: 20 }}
               animate={{
@@ -835,7 +829,7 @@ export default function Events() {
                   >
                     <Image
                       src={galleryImages[activeImageIndex]}
-                      alt={`相册图片 ${activeImageIndex + 1}/${
+                      alt={`image ${activeImageIndex + 1}/${
                         galleryImages.length
                       }`}
                       fill
