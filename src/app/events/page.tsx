@@ -191,7 +191,6 @@ export default function Events() {
     <div className="space-y-16 relative">
       <AnimatedBackground />
 
-      {/* 頁面標題 */}
       <ScrollSection>
         <section className="text-center">
           <motion.h1
@@ -291,7 +290,7 @@ export default function Events() {
                         <h3 className="text-lg md:text-xl font-semibold mt-3 mb-2 text-black">
                           {event.title}
                         </h3>
-                        <p className="text-blue-600  text-sm md:text-base">
+                        <p className="text-blue-600 text-sm md:text-base">
                           {event.date}
                         </p>
                       </div>
@@ -378,7 +377,6 @@ export default function Events() {
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* 相册封面 */}
                 <div
                   className="relative aspect-video cursor-pointer group"
                   onClick={() =>
@@ -411,7 +409,6 @@ export default function Events() {
                   )}
                 </div>
 
-                {/* 相册信息 */}
                 <div className="p-3 flex justify-between items-center">
                   <p className="text-gray-500  text-sm">{album.date}</p>
                   <p className="text-gray-500  text-sm flex items-center">
@@ -490,7 +487,7 @@ export default function Events() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="space-y-2">
-                    <p className="flex items-center text-gray-600  text-sm md:text-base">
+                    <p className="flex items-center text-gray-600 dark:text-gray-300 text-sm md:text-base">
                       <svg
                         className="w-4 h-4 md:w-5 md:h-5 mr-2"
                         fill="none"

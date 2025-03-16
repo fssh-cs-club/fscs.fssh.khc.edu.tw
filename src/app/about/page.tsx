@@ -267,61 +267,63 @@ export default function About() {
           >
             幹部介紹
           </motion.h2>
-          <div className="flex overflow-x-auto no-scrollbar space-x-6 pb-6">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-lg text-center cursor-pointer flex-shrink-0 w-64"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                }}
-                onClick={() => setSelectedMember(member)}
-              >
+          <div className="relative">
+            <div className="flex overflow-x-auto custom-scrollbar space-x-6 pb-6 px-4 py-2 -mx-4">
+              {teamMembers.map((member, index) => (
                 <motion.div
-                  className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden"
-                  whileHover={{ scale: 1.1 }}
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-lg text-center cursor-pointer flex-shrink-0 w-64"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                  }}
+                  onClick={() => setSelectedMember(member)}
                 >
-                  <Image
-                    src={getGravatarUrl(
-                      member.details.contact?.email || defaultEmail,
-                      200
-                    )}
-                    alt={member.name}
-                    width={128}
-                    height={128}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-                <h3 className="text-xl font-semibold mb-2 text-black">
-                  {member.name}
-                </h3>
-                <h4 className="text-lg font-semibold mb-2 text-black">
-                  {member.nickname}
-                </h4>
-                <p className="text-blue-600 mb-2">{member.role}</p>
-                <p className="text-gray-600">{member.description}</p>
-                <motion.button className="mt-4 text-blue-600 hover:text-blue-700 flex items-center justify-center w-full cursor-pointer">
-                  查看詳情
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <motion.div
+                    className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden"
+                    whileHover={{ scale: 1.1 }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
+                    <Image
+                      src={getGravatarUrl(
+                        member.details.contact?.email || defaultEmail,
+                        200
+                      )}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
                     />
-                  </svg>
-                </motion.button>
-              </motion.div>
-            ))}
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-2 text-black">
+                    {member.name}
+                  </h3>
+                  <h4 className="text-lg font-semibold mb-2 text-black">
+                    {member.nickname}
+                  </h4>
+                  <p className="text-blue-600 mb-2">{member.role}</p>
+                  <p className="text-gray-600">{member.description}</p>
+                  <motion.button className="mt-4 text-blue-600 hover:text-blue-700 flex items-center justify-center w-full cursor-pointer">
+                    查看詳情
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </motion.button>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       </ScrollSection>

@@ -35,6 +35,47 @@
   --card-border: rgba(255, 255, 255, 0.1);
   --input-bg: #111827;
   --input-border: #374151;
+  color-scheme: dark;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p,
+.dark span,
+.dark div {
+  color: #ffffff;
+}
+
+.dark .text-black {
+  color: #ffffff !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  color: #d1d5db !important; /* light gray in dark mode */
+}
+
+.dark .text-gray-500 {
+  color: #9ca3af !important; /* medium gray in dark mode */
+}
+
+.dark .text-gray-400 {
+  color: #d1d5db !important; /* lighter gray in dark mode */
+}
+
+.dark .bg-white {
+  background-color: #1f2937 !important; /* dark gray background */
+  color: #ffffff;
+}
+
+.dark .bg-gray-50 {
+  background-color: #374151 !important;
 }
 
 @theme inline {
@@ -262,7 +303,7 @@ select:focus {
 }
 
 .dark .modal-backdrop {
-  @apply bg-black/30;
+  @apply bg-black/50;
 }
 
 .modal-content {
@@ -270,7 +311,7 @@ select:focus {
 }
 
 .dark .modal-content {
-  @apply bg-gray-800/80 border-gray-700/20;
+  @apply bg-gray-800/90 border-gray-700/30 text-white;
 }
 
 /* ===== 表格樣式 ===== */
@@ -353,7 +394,87 @@ tr:hover {
 
 /* Horizontal scrollbar specific styles */
 ::-webkit-scrollbar:horizontal {
-  height: 4px;
+  height: 8px;
+}
+
+/* 水平滾動條的樣式優化 */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  position: relative;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.7);
+  border-radius: 10px;
+  border: 2px solid rgba(241, 241, 241, 0.3);
+  background-clip: padding-box;
+  animation: pulse-scrollbar 2s infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.8);
+  border: 2px solid rgba(241, 241, 241, 0.3);
+  background-clip: padding-box;
+  animation: none;
+}
+
+/* Dark mode 水平滾動條樣式 */
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(102, 102, 102, 0.7);
+  border: 2px solid rgba(42, 42, 42, 0.3);
+  background-clip: padding-box;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(119, 119, 119, 0.8);
+  border: 2px solid rgba(42, 42, 42, 0.3);
+  background-clip: padding-box;
+  animation: none;
+}
+
+/* Scrollbar animation */
+@keyframes pulse-scrollbar {
+  0% {
+    box-shadow: 0 0 0 rgba(136, 136, 136, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 8px rgba(136, 136, 136, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(136, 136, 136, 0.4);
+  }
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  animation: pulse-scrollbar-dark 2s infinite;
+}
+
+@keyframes pulse-scrollbar-dark {
+  0% {
+    box-shadow: 0 0 0 rgba(102, 102, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 8px rgba(102, 102, 102, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(102, 102, 102, 0.4);
+  }
 }
 
 /* Add a class for elements that should completely hide the scrollbar but remain scrollable */
@@ -434,4 +555,93 @@ tr:hover {
   h3 {
     font-size: 1.25rem;
   }
+}
+
+/* Dark mode styles for modal components */
+.dark .modal-backdrop {
+  @apply bg-black/50;
+}
+
+.dark .modal-content {
+  @apply bg-gray-800/90 border-gray-700/30 text-white;
+}
+
+/* Fix white backgrounds to use dark colors in dark mode */
+.dark .bg-white\/80,
+.dark .bg-white\/90 {
+  background-color: rgba(31, 41, 55, 0.9) !important;
+  color: white;
+}
+
+/* Fix borders in dark mode */
+.dark .border-white\/20 {
+  border-color: rgba(75, 85, 99, 0.3) !important;
+}
+
+/* Fix backdrop colors in dark mode */
+.dark .backdrop-blur-md.bg-white\/30 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Common modal components styling for dark mode */
+.dark .modal-content h2,
+.dark .modal-content h3,
+.dark .modal-content h4,
+.dark .modal-content p {
+  color: white !important;
+}
+
+/* Styling for lists and detail sections in modals for dark mode */
+.dark .modal-content ul li,
+.dark .modal-content .details-section {
+  color: #e5e7eb !important;
+}
+
+/* Border colors in modals */
+.dark .modal-content .border-gray-200,
+.dark .modal-content .border-gray-100 {
+  border-color: rgba(75, 85, 99, 0.4) !important;
+}
+
+/* News detail modal specific styles */
+.dark .bg-blue-100 {
+  @apply bg-blue-900/40 text-blue-300;
+}
+
+.dark .bg-red-100 {
+  @apply bg-red-900/40 text-red-300;
+}
+
+.dark .bg-green-100 {
+  @apply bg-green-900/40 text-green-300;
+}
+
+/* About page staff modal specific styling */
+.dark .bg-blue-100.text-blue-600 {
+  @apply bg-blue-900/40 text-blue-300;
+}
+
+/* Override text colors in buttons within modals */
+.dark .modal-content .bg-blue-600,
+.dark .modal-content .hover\:bg-blue-700 {
+  @apply text-white;
+}
+
+/* Fix for buttons in modals */
+.dark .hover\:bg-gray-100 {
+  @apply hover:bg-gray-700;
+}
+
+.dark .border-blue-300 {
+  @apply border-blue-700;
+}
+
+/* Fix for image galleries in event modals */
+.dark .bg-gray-50 {
+  @apply bg-gray-800;
+}
+
+/* Force white text color on elements where needed */
+.dark [class*="text-black"] {
+  color: white !important;
 }
