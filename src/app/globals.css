@@ -1,0 +1,437 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #6b7280;
+  --accent: #60a5fa;
+  --accent-dark: #1d4ed8;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #6366f1;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.05);
+  --input-bg: #f9fafb;
+  --input-border: #e5e7eb;
+  scroll-behavior: smooth;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --secondary: #9ca3af;
+  --accent: #3b82f6;
+  --accent-dark: #1e40af;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #4f46e5;
+  --card-bg: #1f2937;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --input-bg: #111827;
+  --input-border: #374151;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* 全局動畫效果 */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ===== 文字樣式 ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400;
+}
+
+.dark .text-gradient {
+  @apply from-blue-500 to-blue-300;
+}
+
+/* ===== 連結樣式 ===== */
+a {
+  position: relative;
+  transition: all 0.3s ease;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  transform: translateY(-1px);
+  color: var(--primary-dark);
+}
+
+/* ===== 按鈕樣式 ===== */
+button,
+.button {
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.dark .btn-outline {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.dark .btn-outline:hover {
+  background-color: var(--accent);
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+}
+
+button:active,
+.button:active {
+  transform: translateY(1px);
+}
+
+/* ===== 卡片樣式 ===== */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--card-border);
+}
+
+.dark .card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== 輸入框樣式 ===== */
+input,
+textarea,
+select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
+
+/* ===== 徽章樣式 ===== */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-blue {
+  @apply bg-blue-100 text-blue-700;
+}
+
+.dark .badge-blue {
+  @apply bg-blue-900/40 text-blue-300;
+}
+
+.badge-green {
+  @apply bg-green-100 text-green-700;
+}
+
+.dark .badge-green {
+  @apply bg-green-900/40 text-green-300;
+}
+
+.badge-red {
+  @apply bg-red-100 text-red-700;
+}
+
+.dark .badge-red {
+  @apply bg-red-900/40 text-red-300;
+}
+
+.badge-purple {
+  @apply bg-purple-100 text-purple-700;
+}
+
+.dark .badge-purple {
+  @apply bg-purple-900/40 text-purple-300;
+}
+
+/* ===== 模態視窗樣式 ===== */
+.modal-backdrop {
+  @apply fixed inset-0 backdrop-blur-md bg-white/30 z-50 flex items-center justify-center p-4;
+}
+
+.dark .modal-backdrop {
+  @apply bg-black/30;
+}
+
+.modal-content {
+  @apply bg-white/80 backdrop-blur-sm rounded-lg max-w-2xl w-full shadow-xl border border-white/20;
+}
+
+.dark .modal-content {
+  @apply bg-gray-800/80 border-gray-700/20;
+}
+
+/* ===== 表格樣式 ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+th {
+  background-color: var(--input-bg);
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--input-border);
+}
+
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--input-border);
+}
+
+tr:hover {
+  background-color: var(--input-bg);
+}
+
+/* 頁面切換動畫 */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Horizontal scrollbar specific styles */
+::-webkit-scrollbar:horizontal {
+  height: 4px;
+}
+
+/* Add a class for elements that should completely hide the scrollbar but remain scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 背景網格效果 */
+.bg-grid-white {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid-white {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* 滾動觸發動畫 */
+.scroll-trigger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-trigger.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 懸停效果 */
+.hover-lift {
+  transition: transform 0.2s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* 點擊效果 */
+.click-effect {
+  transition: transform 0.1s ease-out;
+}
+
+.click-effect:active {
+  transform: scale(0.95);
+}
+
+/* 主題切換按鈕 */
+.theme-toggle {
+  @apply p-2 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors;
+}
+
+/* 響應式佈局 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
