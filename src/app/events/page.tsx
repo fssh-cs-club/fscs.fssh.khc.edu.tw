@@ -97,12 +97,12 @@ export default function Events() {
       date: "2024-11-03",
       coverIndex: 4,
       images: [
-        "/images/events/welcome/img1.jpg",
-        "/images/events/welcome/img2.jpg",
-        "/images/events/welcome/img3.jpg",
-        "/images/events/welcome/img4.jpg",
-        "/images/events/welcome/img5.jpg",
-        "/images/events/welcome/img6.jpg",
+        "/images/events/welcome/29-1.jpg",
+        "/images/events/welcome/29-2.jpg",
+        "/images/events/welcome/29-3.jpg",
+        "/images/events/welcome/29-4.jpg",
+        "/images/events/welcome/29-5.jpg",
+        "/images/events/welcome/29-6.jpg",
       ],
     },
     {
@@ -143,10 +143,10 @@ export default function Events() {
         - 猜歌遊戲
       `,
       images: [
-        "/images/events/welcome/img1.jpg",
-        "/images/events/welcome/img2.jpg",
-        "/images/events/welcome/img3.jpg",
-        "/images/events/welcome/img4.jpg",
+        "/images/events/welcome/29-1.jpg",
+        "/images/events/welcome/29-2.jpg",
+        "/images/events/welcome/29-3.jpg",
+        "/images/events/welcome/29-4.jpg",
       ],
       previewImages: [0, 3],
       albumId: "1",
