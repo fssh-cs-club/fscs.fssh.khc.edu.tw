@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: "活動紀錄", href: "/events" },
     { name: "歷屆幹部", href: "/alumni" },
     { name: "聯絡我們", href: "/contact" },
+    { name: "CTFd", href: "/ctfd", target: "_blank" },
   ];
 
   const isActive = (path: string) => pathname === path;
@@ -67,6 +68,7 @@ const Navbar = () => {
                       ? "text-blue-600"
                       : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   }`}
+                  target={item.target || "_self"}
                 >
                   {item.name}
                   {isActive(item.href) && (
@@ -169,6 +171,7 @@ const Navbar = () => {
                         : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800"
                     }`}
                     onClick={() => setIsOpen(false)}
+                    target={item.target || "_self"}
                   >
                     {item.name}
                   </Link>

@@ -19,7 +19,7 @@ const Footer = () => {
     },
     {
       name: "GitHub",
-      href: "https://github.com/FSSH-FSCS",
+      href: "https://github.com/fssh-cs-club",
       icon: "github",
       color: "hover:text-gray-200",
     },
